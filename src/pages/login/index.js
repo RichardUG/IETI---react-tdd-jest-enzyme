@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Grid,Paper, Avatar, TextField, Button} from '@material-ui/core';
+import { Grid,Paper, Avatar, TextField} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,7 +7,8 @@ import FormControl from '@material-ui/core/FormControl';
 import UserIcon from '@mui/icons-material/Person';
 import PasswordIcon from '@mui/icons-material/Password';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import './login.css';
+
+import './login.scss';
 
 const Login=()=>{
 
@@ -20,9 +21,9 @@ const Login=()=>{
 
 
     return(
-        <Grid>
+        <Grid >
             <form onSubmit="" className="" >
-                <Paper elevation={10} style={paperStyle} className="fondologin">
+                <Paper elevation={10} style={paperStyle} className="card">
                     <Grid align='center'>
                         <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
                         <h2>Iniciar Sesion</h2>
@@ -48,7 +49,7 @@ const Login=()=>{
                         </div >
                     </div>
                     <br/><br/><br/>
-                    <Button className="botonlogin" type='submit' color='primary' variant="contained" fullWidth>Sign in</Button>
+                    <button className="boton" type='submit' variant="contained" >Sign in</button>
                 </Paper>
             </form>
         </Grid>
