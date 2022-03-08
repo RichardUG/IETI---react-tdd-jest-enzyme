@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 //window.$dir="http://localhost:8080/"
+window.$token="";
 
 ReactDOM.render(
     <App />,

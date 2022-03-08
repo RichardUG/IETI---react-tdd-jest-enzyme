@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Grid,Paper, Avatar, TextField} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -14,15 +15,41 @@ const Login=()=>{
 
     const paperStyle={padding :20,height:'70vh',width:310, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
+    const[email, setEmail] = useState('');
+    const[password, setPassword] =useState('');
+    const [ token, setToken ] = useState(null);
+	let navigate = useNavigate();
+    
 
-    const [showPassword] = useState(false);
-
-    const[currentUserData] =useState([])
-
-
+    const handleEmail = (e) =>{
+        const { name, value } = e.currentTarget;
+        setEmail(value);
+    }
+    const handlePassword = (e) =>{
+        const { name, value } = e.currentTarget;
+        setPassword(value);
+    }
+    const handleSubmit = (e) =>{
+        if(email!=='' && password!==''){
+            fetch("http://localhost:8080/v1/auth",{
+                mode: 'cors',
+                method: 'POST',
+                body:JSON.stringify({
+                    "email": email,
+                    "password": password
+                }),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+                
+            }).then(response => console.log(response.json)).catch(
+                console.log("sssss")
+            )
+        }
+    }
     return(
         <Grid >
-            <form onSubmit="" className="" >
+            <form onSubmit={handleSubmit} className="" >
                 <Paper elevation={10} style={paperStyle} className="card">
                     <Grid align='center'>
                         <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
@@ -32,24 +59,26 @@ const Login=()=>{
                         <div>
                             <ListItemIcon><UserIcon className="icons"/> </ListItemIcon>
                             <TextField variant="outlined" id="user" name="user" label="Username" type="email"
-                                value={currentUserData?.email} />
+                                value={email?.email} onChange={handleEmail}/>
                         </div>
                         <br></br>
                         <div >
                             <ListItemIcon><PasswordIcon className="icons"/> </ListItemIcon>
                             <FormControl className="" variant="outlined" >
-                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-password" value={password}
+                                    >Password</InputLabel>
                                 <OutlinedInput fullWidth label="Password"
                                     id="outlined-adornment-password-login"
-                                    type={showPassword? 'text' : 'password'}
+                                    type='password'
                                     name="password"
                                     autoComplete="off"
+                                    onChange={handlePassword}
                                 />
                             </FormControl>
                         </div >
                     </div>
                     <br/><br/><br/>
-                    <button className="boton" type='submit' variant="contained" >Sign in</button>
+                    <button className="boton" type="submit" variant="contained">Sign in</button>
                 </Paper>
             </form>
         </Grid>
