@@ -11,13 +11,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 
 import './login.scss';
 
-const Login=()=>{
+const Login =()=>{
 
     const paperStyle={padding :20,height:'70vh',width:310, margin:"20px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const[email, setEmail] = useState('');
     const[password, setPassword] =useState('');
-    const [ token, setToken ] = useState(null);
+    //const [ token, setToken ] = useState(null);
 	let navigate = useNavigate();
     
 
@@ -30,7 +30,11 @@ const Login=()=>{
         setPassword(value);
     }
     const handleSubmit = (e) =>{
-        if(email!=='' && password!==''){
+        e.preventDefault()
+        console.log(window.$token);
+        console.log("sssss")
+        
+        if(email!=='' && password!==''){  
             fetch("http://localhost:8080/v1/auth",{
                 mode: 'cors',
                 method: 'POST',
@@ -42,10 +46,14 @@ const Login=()=>{
                     'Content-Type': 'application/json'
                 }
                 
-            }).then(response => console.log(response.json)).catch(
-                console.log("sssss")
-            )
+            }).then(response=>response.json())
+            .then(json => {
+                window.$token=json.token;
+                window.$expiration=json.expirationDate;
+                navigate("../tasks")
+            })
         }
+        
     }
     return(
         <Grid >

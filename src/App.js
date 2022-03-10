@@ -4,7 +4,7 @@ import Login from './pages/login';
 import Tasks from './pages/tasks';
 function App() {
   return (
-    <Router forceRefresh={true}>
+    <Router >
       <Routes>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/tasks' element={<Tasks/>}/>
