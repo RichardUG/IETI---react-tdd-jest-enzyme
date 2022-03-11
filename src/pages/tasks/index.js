@@ -57,7 +57,7 @@ const Tasks=()=>{
     const [tasks, setTasks] = useState('');
 
     useEffect(()=>{
-        fetch("http://localhost:8080/v1/tasks",{
+        fetch(window.$tasks + "/v1/tasks",{
             mode: 'cors',
             method: 'GET',
             headers:{
@@ -76,7 +76,7 @@ const Tasks=()=>{
         
         <div>
             <center>
-                <div style={{ height: 400, width: '70%' }} >
+                <div style={{ height: 400, width: '70%', backgroundColor: 'white'}} >
                     <DataGrid
                     rows={tasks || []}
                     columns={columns}

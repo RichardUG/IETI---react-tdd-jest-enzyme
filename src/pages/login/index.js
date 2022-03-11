@@ -35,7 +35,7 @@ const Login =()=>{
         console.log("sssss")
         
         if(email!=='' && password!==''){  
-            fetch("http://localhost:8080/v1/auth",{
+            fetch(window.$users + "/v1/auth",{
                 mode: 'cors',
                 method: 'POST',
                 body:JSON.stringify({
