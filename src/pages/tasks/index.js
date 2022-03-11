@@ -1,7 +1,59 @@
 import React,{useEffect, useState} from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 
 const Tasks=()=>{
-
+    const columns = [
+        { 
+            field: 'id', 
+            headerName: 'ID', 
+            width: 90,
+            type: "string",
+        },
+        {
+            field: 'name',
+            headerName: 'Name',
+            width: 150,
+            type: "string",
+            editable: false,
+        },
+        {
+            field: 'description',
+            headerName: 'Description',
+            width: 150,
+            type: "string",
+            editable: false,
+        },
+        {
+            field: 'status',
+            headerName: 'Status',
+            width: 110,
+            type: "string",
+            editable: false,
+        },
+        {
+            field: 'assignedTo',
+            headerName: 'Assigned to',
+            width: 110,
+            type: "string",
+            editable: false,
+        },
+        {
+            field: 'dueDate',
+            headerName: 'Due date',
+            width: 110,
+            type: "string",
+            editable: false,
+        },
+        {
+            field: 'created',
+            headerName: 'Created',
+            width: 110,
+            type: "string",
+            editable: false,
+        },
+        
+    ];
+      
     const [tasks, setTasks] = useState('');
 
     useEffect(()=>{
@@ -21,19 +73,19 @@ const Tasks=()=>{
 
 
     return(
+        
         <div>
             <center>
-                {tasks && tasks.map((item, idx)=> {
-                    return <li key={idx}>
-                    <p>id: {item.id}</p>
-                    <p>name: {item.name}  </p>
-                    <p>description: {item.description} </p>
-                    <p>status: {item.status}</p>
-                    <p>assignedTo: {item.assignedTo}</p>
-                    <p>dueDate: {item.dueDate}</p>
-                    <p>created: {item.created}</p>
-                    </li>
-                })}
+                <div style={{ height: 400, width: '70%' }} >
+                    <DataGrid
+                    rows={tasks || []}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    />
+                </div>
             </center>
         </div>
     )
