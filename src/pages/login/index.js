@@ -22,11 +22,11 @@ const Login =()=>{
     
 
     const handleEmail = (e) =>{
-        const { name, value } = e.currentTarget;
+        const { value } = e.currentTarget;
         setEmail(value);
     }
     const handlePassword = (e) =>{
-        const { name, value } = e.currentTarget;
+        const { value } = e.currentTarget;
         setPassword(value);
     }
     const handleSubmit = (e) =>{
