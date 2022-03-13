@@ -30,7 +30,10 @@ function App() {
       >
         Change Theme
       </Button>
-      <img src="https://github.com/RichardUG/IETI---react-state-management-pwa/blob/master/img/luna.png?raw=true" alt="" />
+      <img
+        src="https://github.com/RichardUG/IETI---react-state-management-pwa/blob/master/img/sol.png?raw=true"
+        alt=""
+      />
 
       <Router>
         <Routes>
