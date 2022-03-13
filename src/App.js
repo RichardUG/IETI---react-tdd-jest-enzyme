@@ -22,7 +22,11 @@ function App() {
         <style>{bg}</style>
       </Helmet>
       <Button
-        style={{background:`${state.isDarkMode ? "rgb(177, 177, 177)" : "rgb(43, 43, 43)"}`}}
+        style={{
+          background: `${
+            state.isDarkMode ? "rgb(177, 177, 177)" : "rgb(43, 43, 43)"
+          }`,
+        }}
         onClick={() => {
           if (state.isDarkMode) {
             dispatch("SET_LIGHT_MODE");
@@ -35,14 +39,14 @@ function App() {
           }
         }}
       >
-      <img
-        className="boton"
-        src={imagen}
-        alt="boton"
-        width={40}
-        height={40}
-      />
-      <div className={`${state.isDarkMode ? "light" : "dark"}`}>{mode}</div>
+        <img
+          className="boton"
+          src={imagen}
+          alt="boton"
+          width={40}
+          height={40}
+        />
+        <div className={`${state.isDarkMode ? "light" : "dark"}`}>{mode}</div>
       </Button>
       <Router>
         <Routes>
