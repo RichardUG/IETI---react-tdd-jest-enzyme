@@ -1,4 +1,4 @@
-.boton {
+.boton-light{
   border-radius: 50px;
   background: #6196fb;
   white-space: nowrap;
@@ -15,9 +15,30 @@
     color: #010906;
   }
 }
-body {
-  background: rgb(177, 177, 177);
+.boton-dark{
+  border-radius: 50px;
+  background: rgb(2, 204, 29);
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: rgb(1, 153, 22);
+    color: white;
+  }
 }
 .card {
   text-align: center;
+}
+.dark {
+	color:  white;
+}
+
+.light {
+  color: black;
 }
