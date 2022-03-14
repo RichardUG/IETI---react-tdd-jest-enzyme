@@ -6,7 +6,6 @@
     "node": "17.7.1",
     "npm": "8.5.2"
   },
-  "start": "node index.js",
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
