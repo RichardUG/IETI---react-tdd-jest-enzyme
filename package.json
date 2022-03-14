@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": "v17.7.1",
+    "node": "17.7.1",
     "npm": "8.5.2"
   },
   "start": "node index.s",
