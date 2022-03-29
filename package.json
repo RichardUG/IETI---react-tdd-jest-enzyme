@@ -2,8 +2,9 @@
   "name": "ieti_app",
   "version": "0.1.0",
   "private": true,
+  "main": "app.js",
   "engines": {
-    "node": "v17.7.1"
+    "node": "v17.x"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
