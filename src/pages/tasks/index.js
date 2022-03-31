@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { ThemeContext } from "../../ThemeContext";
 const Tasks = () => {
-  const { state } = useContext(ThemeContext);
+  const { state="" } = useContext(ThemeContext);
   const columns = [
     {
       field: "id",

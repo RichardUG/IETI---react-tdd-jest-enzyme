@@ -11,7 +11,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import { ThemeContext } from "../../ThemeContext";
 import "./login.scss";
 const Login = () => {
-  const { state } = useContext(ThemeContext);
+  const { state =""} = useContext(ThemeContext);
   const paperStyle = {
     padding: 20,
     height: "60vh",
